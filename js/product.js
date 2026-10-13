@@ -93,6 +93,7 @@ function loadProductReviews() {
 
     const reviewsHTML = reviews.map(review => `
         <div class="review-item">
+            ${review.isDemo ? '<span class="badge bg-secondary mb-2">Демонстрационный отзыв</span>' : ''}
             <div class="review-author">${review.author}</div>
             <div class="review-rating">
                 ${generateStars(review.rating)}

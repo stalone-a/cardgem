@@ -201,9 +201,17 @@ function openProductFromCheckout(productId) {
         16: 'products/revolut-verified.html',
         17: 'products/volet-advcash-verified.html',
         18: 'products/skrill-verified.html',
+        242: 'products/payoneer-verified.html',
+        243: 'products/paysera-verified.html',
+        244: 'products/stripe-verified.html',
         19: 'products/bybit-verified.html',
         20: 'products/binance-verified.html',
         21: 'products/okx-verified.html',
+        306: 'products/kraken-verified.html',
+        307: 'products/crypto-com-wallet.html',
+        308: 'products/bitget-wallet.html',
+        309: 'products/gateio-wallet.html',
+        317: 'products/n26-account.html',
         26: 'products/mexc-verified.html',
         305: 'products/bybit-account-with-balance.html',
         27: 'products/bingx-verified.html',
@@ -214,6 +222,13 @@ function openProductFromCheckout(productId) {
         102: 'products/vtb-platina.html',
         201: 'products/sberbank-gold.html',
         202: 'products/sberbank-perviy.html',
+        310: 'products/sberbank-verified.html',
+        311: 'products/vtb-verified.html',
+        312: 'products/tbank-verified.html',
+        313: 'products/alfabank-verified.html',
+        314: 'products/kaspi-bank-verified.html',
+        315: 'products/halyk-bank-verified.html',
+        316: 'products/google-adsense-account.html',
         205: 'products/tinkoff-black.html',
         210: 'products/visa-prepaid-virtual-100-eur.html',
         211: 'products/mastercard-prepaid-virtual-100-usd.html',
@@ -524,7 +539,7 @@ async function fetchCryptoRates(retryCount = 0) {
     const maxRetries = 3;
 
     try {
-        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether,bitcoin,ethereum,ripple,binancecoin,monero,matic-network,polygon-ecosystem-token,the-open-network&vs_currencies=rub', {
+        const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether,bitcoin,ethereum,usd-coin,binancecoin,monero,solana,the-open-network&vs_currencies=rub', {
             cache: 'no-cache',
             headers: {
                 'Cache-Control': 'no-cache',
@@ -538,32 +553,21 @@ async function fetchCryptoRates(retryCount = 0) {
 
         const data = await response.json();
 
-        const requiredCoins = ['tether', 'bitcoin', 'ethereum', 'ripple', 'binancecoin', 'monero', 'the-open-network'];
+        const requiredCoins = ['tether', 'bitcoin', 'ethereum', 'usd-coin', 'binancecoin', 'monero', 'solana', 'the-open-network'];
         const missingCoins = requiredCoins.filter(coin => !data[coin]?.rub);
 
         if (missingCoins.length > 0) {
             throw new Error(`Отсутствуют данные для: ${missingCoins.join(', ')}`);
         }
 
-        let polRate = null;
-        if (data['polygon-ecosystem-token']?.rub) {
-            polRate = data['polygon-ecosystem-token'].rub;
-        } else if (data['matic-network']?.rub) {
-            polRate = data['matic-network'].rub;
-        }
-
-        if (!polRate) {
-            throw new Error('Не удалось получить курс POL');
-        }
-
         cryptoRates = {
             'USDT': data.tether.rub,
             'BTC': data.bitcoin.rub,
             'ETH': data.ethereum.rub,
-            'XRP': data.ripple.rub,
+            'USDC': data['usd-coin'].rub,
             'BNB': data.binancecoin.rub,
             'XMR': data.monero.rub,
-            'POL': polRate,
+            'SOL': data.solana.rub,
             'TON': data['the-open-network'].rub
         };
 
@@ -689,7 +693,7 @@ function initCryptoOptions() {
                 return;
             }
 
-            const cryptoAmount = (currentOrderTotal / rate).toFixed(8);
+            const cryptoAmount = formatCryptoAmount(currentOrderTotal, rate, crypto);
             const displayCrypto = crypto === 'TON' ? 'GRAM' : crypto;
 
             document.getElementById('paymentTotalCrypto').textContent = cryptoAmount;
@@ -698,6 +702,11 @@ function initCryptoOptions() {
             showPaymentDetails(crypto, cryptoAmount, displayCrypto);
         });
     });
+}
+
+function formatCryptoAmount(total, rate, crypto) {
+    const precision = crypto === 'USDC' ? 6 : crypto === 'SOL' ? 9 : 8;
+    return (total / rate).toFixed(precision);
 }
 
 function showPaymentDetails(crypto, amount, displayCrypto = crypto) {
@@ -717,10 +726,10 @@ function generateWalletAddress(crypto) {
         'USDT': 'TSeDN72GFdZMjdUQ7vAF4Fr8VKr179BR9W',
         'BTC': 'bc1qfltfq200eaerx8qcs32d6kjqt6dc2wytsx7fve',
         'ETH': '0xb833F0a516402E6E8dE95467a62EEB701dA89FFa',
-        'XRP': 'rs1sXQZsv58E2pG5ZMaaDSb4ATC3nPPgco',
+        'USDC': '0xb833F0a516402E6E8dE95467a62EEB701dA89FFa',
         'BNB': '0xb833F0a516402E6E8dE95467a62EEB701dA89FFa',
         'XMR': '86LWrERA2yFesLAmVk9Cy962wEZoCs5aLGecaiSGz7ss5fsNR19ewgud8iPq1vTWt1QR788ucbmbyjYviSB7yR9uVPXHfXq',
-        'POL': '0xb833F0a516402E6E8dE95467a62EEB701dA89FFa',
+        'SOL': '8HxuYV5NCoc9GVmhKhy8CFAhRjLMgbC4YN9Hp2TXs5Ks',
         'TON': 'UQCABwtQiCoVhBQXtPeIv4pIWjVGcDEHxqYQJFodr_FpgKU1'
     };
 
@@ -786,7 +795,7 @@ function showProcessingPanel(orderData) {
         return;
     }
 
-    const cryptoAmount = (currentOrderTotal / rate).toFixed(8);
+    const cryptoAmount = formatCryptoAmount(currentOrderTotal, rate, selectedCrypto);
     const displayCrypto = selectedCrypto === 'TON' ? 'GRAM' : selectedCrypto;
 
     document.getElementById('processingAmount').textContent = cryptoAmount;

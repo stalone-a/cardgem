@@ -239,19 +239,29 @@ function updateFavoritesBadge() {
     });
 }
 
-function addToCart(product) {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push(product);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartBadge();
+function addToCart(productOrId) {
+    const productId = typeof productOrId === 'object' ? productOrId?.id : productOrId;
+    const product = typeof productOrId === 'object'
+        ? productOrId
+        : window.products?.find(item => String(item.id) === String(productId));
+    if (!product) return;
 
-    updateGlobalCartButtonState(product.id, true);
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const isInCart = cart.some(item => String(item.id) === String(productId));
+    const nextCart = isInCart
+        ? cart.filter(item => String(item.id) !== String(productId))
+        : [...cart, product];
+
+    localStorage.setItem('cart', JSON.stringify(nextCart));
+    updateCartBadge();
+    updateGlobalCartButtonState(productId, !isInCart);
 
     window.dispatchEvent(new CustomEvent('cartChanged', {
-        detail: { productId: product.id, action: 'added', cart: cart }
+        detail: { productId, action: isInCart ? 'removed' : 'added', cart: nextCart }
     }));
 
-    showNotification('Товар добавлен в корзину!');
+    if (document.getElementById('cartModal')?.classList.contains('show')) renderCart();
+    showNotification(isInCart ? 'Товар удален из корзины!' : 'Товар добавлен в корзину!');
 }
 
 function addToFavorites(product) {
@@ -470,6 +480,99 @@ async function initializeProductGallery() {
 
 document.addEventListener('DOMContentLoaded', initializeProductGallery);
 
+function initializeHomePopular() {
+    const section = document.getElementById('homePopular');
+    const track = document.getElementById('homePopularTrack');
+    const previousButton = document.getElementById('homePopularPrev');
+    const nextButton = document.getElementById('homePopularNext');
+
+    if (!section || !track || !previousButton || !nextButton ||
+        !Array.isArray(window.products) || typeof createProductHTML !== 'function') return;
+
+    const featuredProductIds = [212, 30, 3, 305, 7, 213, 12, 210];
+    const featuredProducts = featuredProductIds
+        .map(productId => window.products.find(product => String(product.id) === String(productId)))
+        .filter(Boolean);
+
+    track.innerHTML = featuredProducts
+        .map(product => `<div class="home-popular-item">${createProductHTML(product)}</div>`)
+        .join('');
+
+    if (!track.children.length) return;
+    section.hidden = false;
+
+    const autoplayDelay = 5000;
+    let autoplayTimer;
+    let autoplayPaused = false;
+
+    const updateControls = () => {
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        previousButton.disabled = track.scrollLeft <= 1;
+        nextButton.disabled = maxScroll <= 1 || track.scrollLeft >= maxScroll - 1;
+    };
+
+    const scheduleAutoAdvance = () => {
+        window.clearTimeout(autoplayTimer);
+        if (autoplayPaused || document.visibilityState !== 'visible' ||
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        autoplayTimer = window.setTimeout(() => {
+            const hasHover = window.matchMedia('(hover: hover)').matches && section.matches(':hover');
+            const hasFocus = section.contains(document.activeElement);
+            if (hasHover || hasFocus) {
+                scheduleAutoAdvance();
+                return;
+            }
+
+            const maxScroll = track.scrollWidth - track.clientWidth;
+            if (maxScroll <= 1) return;
+
+            if (track.scrollLeft >= maxScroll - 1) {
+                track.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                track.scrollBy({ left: track.clientWidth * 0.9, behavior: 'smooth' });
+            }
+            scheduleAutoAdvance();
+        }, autoplayDelay);
+    };
+
+    const pauseAutoplay = () => {
+        autoplayPaused = true;
+        window.clearTimeout(autoplayTimer);
+    };
+
+    const resumeAutoplay = () => {
+        autoplayPaused = false;
+        scheduleAutoAdvance();
+    };
+
+    previousButton.addEventListener('click', () => {
+        track.scrollBy({ left: -track.clientWidth * 0.9, behavior: 'smooth' });
+    });
+    nextButton.addEventListener('click', () => {
+        track.scrollBy({ left: track.clientWidth * 0.9, behavior: 'smooth' });
+    });
+    track.addEventListener('scroll', updateControls, { passive: true });
+    window.addEventListener('resize', updateControls);
+    section.addEventListener('pointerenter', pauseAutoplay);
+    section.addEventListener('pointerleave', resumeAutoplay);
+    section.addEventListener('focusin', pauseAutoplay);
+    section.addEventListener('focusout', event => {
+        if (!section.contains(event.relatedTarget)) resumeAutoplay();
+    });
+    section.addEventListener('touchstart', pauseAutoplay, { passive: true });
+    section.addEventListener('touchend', resumeAutoplay, { passive: true });
+    section.addEventListener('touchcancel', resumeAutoplay, { passive: true });
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') resumeAutoplay();
+        else pauseAutoplay();
+    });
+    updateControls();
+    scheduleAutoAdvance();
+}
+
+document.addEventListener('DOMContentLoaded', initializeHomePopular);
+
 function initializeHomeReviews() {
     const reviewsSection = document.getElementById('homeReviews');
     const reviewsGrid = document.getElementById('homeReviewsGrid');
@@ -507,6 +610,7 @@ function initializeHomeReviews() {
         return `
             <article class="home-review-slide">
                 <div class="home-review-card">
+                    ${review.isDemo ? '<span class="badge bg-secondary mb-2">Демонстрационный отзыв</span>' : ''}
                     <div class="home-review-meta">
                         <strong>${review.author}</strong>
                         <time datetime="${review.date}">${date}</time>
@@ -832,19 +936,40 @@ function openProduct(productId) {
         9: 'products/oldubil-verified.html',
         10: 'products/wise-verified.html',
         11: 'products/pyypl-verified.html',
-        12: 'products/yandex-pay-maximum.html',        16: 'products/revolut-verified.html',
+        12: 'products/yandex-pay-maximum.html',
+        16: 'products/revolut-verified.html',
         17: 'products/volet-advcash-verified.html',
         18: 'products/skrill-verified.html',
+        242: 'products/payoneer-verified.html',
+        243: 'products/paysera-verified.html',
+        244: 'products/stripe-verified.html',
         19: 'products/bybit-verified.html',
         20: 'products/binance-verified.html',
         21: 'products/okx-verified.html',
+        306: 'products/kraken-verified.html',
+        307: 'products/crypto-com-wallet.html',
+        308: 'products/bitget-wallet.html',
+        309: 'products/gateio-wallet.html',
+        317: 'products/n26-account.html',
         26: 'products/mexc-verified.html',
         305: 'products/bybit-account-with-balance.html',
         27: 'products/bingx-verified.html',
         28: 'products/coinbase-verified.html',
-        304: 'products/coinbase-account-with-balance.html',        24: 'products/mastercard-rbs.html',
-        25: 'products/mir-sberbank.html',        102: 'products/vtb-platina.html',        201: 'products/sberbank-gold.html',
-        202: 'products/sberbank-perviy.html',        205: 'products/tinkoff-black.html',        210: 'products/visa-prepaid-virtual-100-eur.html',
+        304: 'products/coinbase-account-with-balance.html',
+        24: 'products/mastercard-rbs.html',
+        25: 'products/mir-sberbank.html',
+        102: 'products/vtb-platina.html',
+        201: 'products/sberbank-gold.html',
+        202: 'products/sberbank-perviy.html',
+        310: 'products/sberbank-verified.html',
+        311: 'products/vtb-verified.html',
+        312: 'products/tbank-verified.html',
+        313: 'products/alfabank-verified.html',
+        314: 'products/kaspi-bank-verified.html',
+        315: 'products/halyk-bank-verified.html',
+        316: 'products/google-adsense-account.html',
+        205: 'products/tinkoff-black.html',
+        210: 'products/visa-prepaid-virtual-100-eur.html',
         211: 'products/mastercard-prepaid-virtual-100-usd.html',
         212: 'products/max-account.html',
         213: 'products/qplus-wallet.html',

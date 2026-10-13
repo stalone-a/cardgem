@@ -266,11 +266,11 @@
                         </div>
                     </article>
                     <article class="col-md-3">
-                        <div class="category-card card h-100" data-category="prepaid">
+                        <div class="category-card card h-100" data-category="bankaccounts">
                             <div class="card-body text-center">
-                                <i class="bi bi-wallet fs-1 mb-3"></i>
-                                <h3 class="card-title h5">Предоплаченные карты</h3>
-                                <p class="card-text">Предоплаченные Visa и Mastercard</p>
+                                <i class="bi bi-bank fs-1 mb-3"></i>
+                                <h3 class="card-title h5">Банковские аккаунты</h3>
+                                <p class="card-text">Верифицированные аккаунты банков</p>
                                 <span class="category-arrow"><i class="bi bi-arrow-up-right"></i></span>
                             </div>
                         </div>
@@ -295,6 +295,31 @@
                             </div>
                         </div>
                     </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-5 home-section home-popular-section" id="homePopular" hidden>
+            <div class="container">
+                <div class="home-popular-heading">
+                    <div>
+                        <span class="home-eyebrow">Выбор покупателей</span>
+                        <h2>Популярные товары</h2>
+                        <p>Подборка из каталога.</p>
+                    </div>
+                    <div class="home-popular-controls" aria-label="Управление подборкой товаров">
+                        <button class="home-popular-control" type="button" id="homePopularPrev"
+                            aria-label="Предыдущие товары" title="Предыдущие товары" disabled>
+                            <i class="bi bi-arrow-left"></i>
+                        </button>
+                        <button class="home-popular-control" type="button" id="homePopularNext"
+                            aria-label="Следующие товары" title="Следующие товары" disabled>
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="home-popular-viewport" aria-label="Популярные товары">
+                    <div class="home-popular-track" id="homePopularTrack"></div>
                 </div>
             </div>
         </section>

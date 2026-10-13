@@ -318,7 +318,14 @@ const products = [
         image: "images/products/volet-advcash-verified.webp",
         description: "Чистый аккаунт с пройденной верификацией и возрастом более 30 суток. Активирована виртуальная карта Europe Virtual.",
         images: ["images/products/volet-advcash-verified.webp", "images/products/volet-advcash-verified2.webp"],
-        reviews: []
+        reviews: [
+            {
+                author: "Isak",
+                rating: 5,
+                text: "Понадобился дополнительный счет для рабочих платежей. Первый входящий перевод пришел мгновенно, так что со своей задачей он справляется.",
+                date: "2026-07-10",
+            }
+        ]
     },
     {
         id: 18,
@@ -328,7 +335,82 @@ const products = [
         image: "images/products/skrill-verified.webp",
         description: "Чистый аккаунт с пройденной верификацией и возрастом более 30 суток.",
         images: ["images/products/skrill-verified.webp", "images/products/skrill-verified2.webp"],
-        reviews: []
+        reviews: [
+            {
+                author: "Same",
+                rating: 5,
+                text: "Проверил входящий и исходящий переводы. Всё на месте, счет не заблокирован",
+                date: "2026-10-08",
+            }
+        ]
+    },
+    {
+        id: 242,
+        name: "Верифицированный Payoneer аккаунт",
+        price: 2000,
+        category: "ewallet",
+        image: "images/products/payoneer.webp",
+        description: "Аккаунт Payoneer для международных платежей и получения переводов.",
+        images: ["images/products/payoneer.webp"],
+        reviews: [
+            {
+                author: "kirill",
+                rating: 5,
+                text: "Нормуль, всё на месте.",
+                date: "2026-10-04"
+            }
+        ]
+    },
+    {
+        id: 317,
+        name: "Верифицированный N26 аккаунт",
+        price: 2500,
+        category: "ewallet",
+        image: "images/products/n26.webp",
+        description: "Информационные материалы и поддержка по самостоятельной регистрации в N26 через официальный сервис. Доступность зависит от страны и требований банка.",
+        images: ["images/products/n26.webp"],
+        reviews: [
+            {
+                author: "Alek",
+                rating: 5,
+                text: "Инструкцию и данные получил без задержек..",
+                date: "2026-10-12",
+            }
+        ]
+    },
+    {
+        id: 243,
+        name: "Верифицированный Paysera аккаунт",
+        price: 2000,
+        category: "ewallet",
+        image: "images/products/paysera.webp",
+        description: "Верифицированный аккаунт Paysera.",
+        images: ["images/products/paysera.webp"],
+        reviews: [
+            {
+                author: "Дашман",
+                rating: 5,
+                text: "Аккаунту 11 дней, всё ещё жив.",
+                date: "2026-08-09",
+            }
+        ]
+    },
+    {
+        id: 244,
+        name: "Верифицированный Stripe аккаунт",
+        price: 2300,
+        category: "ewallet",
+        image: "images/products/stripe.webp",
+        description: "Верифицированный аккаунт Stripe.",
+        images: ["images/products/stripe.webp"],
+        reviews: [
+            {
+                author: "санта",
+                rating: 5,
+                text: "Всё летает всё работает. Главное чтобы аккаунт в ближайшее время не заблокировали.",
+                date: "2026-06-27",
+            }
+        ]
     },
     {
         id: 19,
@@ -482,6 +564,79 @@ const products = [
 ]
     },
     {
+        id: 306,
+        name: "Верифицированный Kraken аккаунт",
+        price: 2000,
+        category: "ewallet",
+        image: "images/products/kraken.webp",
+        description: "Аккаунт Kraken для работы с криптовалютами. Доступность функций зависит от региона и требований сервиса.",
+        images: ["images/products/kraken.webp"],
+        reviews: [
+            {
+                author: "Денис",
+                rating: 5,
+                text: "Подержал аккаунт у себя несколько дней, прежде чем написать отзыв. Никаких сбросов, никаких странных изменений — аккаунт по-прежнему жив.",
+                date: "2026-10-03",
+            },
+            {
+                author: "iman",
+                rating: 5,
+                text: "Получено и отработано! Зайду ещё",
+                date: "2026-07-27",
+            }
+        ]
+    },
+    {
+        id: 307,
+        name: "Верифицированный Crypto.com аккаунт",
+        price: 2500,
+        category: "ewallet",
+        image: "images/products/crypto.com.webp",
+        description: "Материалы и поддержка по самостоятельной настройке официального криптокошелька Crypto.com.",
+        images: ["images/products/crypto.com.webp"],
+        reviews: [
+            {
+                author: "Лео",
+                rating: 5,
+                text: "Купил 1 шт для пробы, аккаунт живой и в рабочем состоянии уже дня 3 где-то. Надеюсь, не помрёт.",
+                date: "2026-09-20",
+            },
+            {
+                author: "124",
+                rating: 5,
+                text: "Сначала прогнал небольшой объём, кошелек даже не пискнул)) Никаких сюрпризов, можно работать",
+                date: "2026-08-30",
+            }
+        ]
+    },
+    {
+        id: 308,
+        name: "Верифицированный Bitget аккаунт",
+        price: 2200,
+        category: "ewallet",
+        image: "images/products/bitget.webp",
+        description: "Материалы и поддержка по самостоятельной настройке официального криптокошелька Bitget.",
+        images: ["images/products/bitget.webp"],
+        reviews: []
+    },
+    {
+        id: 309,
+        name: "Верифицированный Gate.io аккаунт",
+        price: 2200,
+        category: "ewallet",
+        image: "images/products/gateio.webp",
+        description: "Материалы и поддержка по самостоятельной настройке официального криптокошелька Gate.io.",
+        images: ["images/products/gateio.webp"],
+        reviews: [
+            {
+                author: "Pavl",
+                rating: 5,
+                text: "Доступ получил и сразу выставил все настройки под себя (почта, 2FA), всё круто.",
+                date: "2026-05-18",
+            }
+        ]
+    },
+    {
         id: 24,
         name: "Мастеркард Royal Bank Of Scotland",
         price: 10500,
@@ -631,6 +786,156 @@ const products = [
                     "date": "2024-03-07"
           }
 ]
+    },
+    {
+        id: 310,
+        name: "Верифицированный СберБанк аккаунт",
+        price: 2500,
+        category: "bankaccounts",
+        image: "images/products/sber.webp",
+        description: "Верифицированный аккаунт СберБанк. Перед оформлением уточните условия обслуживания и предоставления.",
+        images: ["images/products/sber.webp"],
+        reviews: [
+            {
+                author: "Gena",
+                rating: 5,
+                text: "Дропы хорошие у ребят , на связи со мной были постоянно если появлялись вопросы",
+                date: "2026-10-08",
+            },
+            {
+                author: "Влад",
+                rating: 5,
+                text: "Самые демократичные цены, лучшие",
+                date: "2026-07-29",
+            },
+            {
+                author: "Денис",
+                rating: 5,
+                text: "Отличный вариант для п2п, беру на постоянке",
+                date: "2026-04-05",
+            },
+            {
+                author: "Мрия",
+                rating: 5,
+                text: "Доволен покупкой у этого продавца",
+                date: "2026-02-23",
+            }
+        ]
+    },
+    {
+        id: 311,
+        name: "Верифицированный ВТБ аккаунт",
+        price: 2500,
+        category: "bankaccounts",
+        image: "images/products/vtb.webp",
+        description: "Верифицированный аккаунт ВТБ. Перед оформлением уточните условия обслуживания и предоставления.",
+        images: ["images/products/vtb.webp"],
+        reviews: [
+            {
+                author: "Серов",
+                rating: 5,
+                text: "привет всем, брал для п2п, все отлично прошло",
+                date: "2026-08-19",
+            },
+            {
+                author: "natural",
+                rating: 4,
+                text: "Аккаунт получил",
+                date: "2026-07-24",
+            }
+        ]
+    },
+    {
+        id: 312,
+        name: "Верифицированный Т-Банк аккаунт",
+        price: 2500,
+        category: "bankaccounts",
+        image: "images/products/t-bank.webp",
+        description: "Верифицированный аккаунт Т-Банк. Перед оформлением уточните условия обслуживания и предоставления.",
+        images: ["images/products/t-bank.webp"],
+        reviews: [
+            {
+                author: "Татарский",
+                rating: 5,
+                text: "Аккаунты хорошие, живут долго",
+                date: "2026-10-13",
+            },
+            {
+                author: "Яша",
+                rating: 5,
+                text: "Акк получил в течении 15 минут после оплаты. Всё работает , полная идентификация",
+                date: "2026-04-18",
+            },
+            {
+                author: "Stanislav",
+                rating: 5,
+                text: "Доступная стоимость. Всë работает.",
+                date: "2026-03-02",
+            }
+        ]
+    },
+    {
+        id: 313,
+        name: "Верифицированный Альфа-Банк аккаунт",
+        price: 2500,
+        category: "bankaccounts",
+        image: "images/products/alfa.webp",
+        description: "Верифицированный аккаунт Альфа-Банк. Перед оформлением уточните условия обслуживания и предоставления.",
+        images: ["images/products/alfa.webp"],
+        reviews: [
+            {
+                author: "epc",
+                rating: 5,
+                text: "Спасибо за возможность делать у вас альфу, работаю с ребятами уже около года",
+                date: "2026-09-24",
+            },
+            {
+                author: "Владимир",
+                rating: 5,
+                text: "Через 10 минут получил доступ. Рекомендую.",
+                date: "2026-04-03",
+            }
+        ]
+    },
+    {
+        id: 314,
+        name: "Верифицированный Kaspi Bank аккаунт",
+        price: 2500,
+        category: "bankaccounts",
+        image: "images/products/kaspi.webp",
+        description: "Верифицированный аккаунт Kaspi Bank. Перед оформлением уточните условия обслуживания и предоставления.",
+        images: ["images/products/kaspi.webp"],
+        reviews: [
+            {
+                author: "Олежка",
+                rating: 5,
+                text: "Лучшие на рынке. Оперативно все сделали. Спасибо",
+                date: "2026-10-09",
+            },
+            {
+                author: "Тимур",
+                rating: 5,
+                text: "Пару дней пользуюсь. Сбоев нет. Полная идентификация.",
+                date: "2026-07-02",
+            }
+        ]
+    },
+    {
+        id: 315,
+        name: "Верифицированный Halyk Bank аккаунт",
+        price: 2500,
+        category: "bankaccounts",
+        image: "images/products/halyk.webp",
+        description: "Верифицированный аккаунт Halyk Bank. Перед оформлением уточните условия обслуживания и предоставления.",
+        images: ["images/products/halyk.webp"],
+        reviews: [
+            {
+                author: "Нурлан",
+                rating: 5,
+                text: "Быстро прислали. В инструкции подробно объяснили порядок действий.",
+                date: "2026-09-22",
+            }
+        ]
     },
     {
         id: 205,
@@ -836,9 +1141,38 @@ const products = [
                     "author": "Дмитрий",
                     "rating": 5,
                     "text": "Все данные на месте, документы тоже скинули как и договаривались",
-                    "date": "2026-06-10"
+                    "date": "2026-06-01"
           }
 ]
+    },
+    {
+        id: 316,
+        name: "Аккаунт Google AdSense",
+        price: 3500,
+        category: "accounts",
+        image: "images/products/adsense.webp",
+        description: "Аккаунт Google AdSense. Перед оформлением уточните статус аккаунта и условия передачи.",
+        images: ["images/products/adsense.webp"],
+        reviews: [
+            {
+                author: "Poly",
+                rating: 5,
+                text: "Очень долго выбирала, у кого заказать адсенс, у всех цены просто заоблачные, здесь же цена за адсенс вполне адекватная. Без проблем, без задержек, всё быстро получилось.",
+                date: "2026-10-01",
+            },
+            {
+                author: "Андрей",
+                rating: 5,
+                text: "Всё четко",
+                date: "2026-09-16",
+            },
+            {
+                author: "atom",
+                rating: 5,
+                text: "Услуга оказана в полном объеме. AdSense к каналу успешно подключили, монетизация работает. Продавец на связи, всё честно. Рекомендую",
+                date: "2026-08-11",
+            }
+        ]
     },
     {
         id: 228,
@@ -1410,8 +1744,8 @@ document.addEventListener('DOMContentLoaded', function () {
             'prepaid': 'prepaid',
             'ewallet': 'ewallet',
             'accounts': 'accounts',
-            'bankaccounts': 'Банковские аккаунты',
-        'all': 'all'
+            'bankaccounts': 'bankaccounts',
+            'all': 'all'
         };
 
         currentCategory = categoryMapping[urlCategory] || urlCategory;
@@ -1545,6 +1879,13 @@ function sortProducts(products) {
         case 'price-desc':
             return sorted.sort((a, b) => b.price - a.price);
         default:
+            const qplusIndex = sorted.findIndex(product => String(product.id) === '213');
+            const ozonIndex = sorted.findIndex(product => String(product.id) === '7');
+            if (qplusIndex !== -1 && ozonIndex !== -1) {
+                const [qplusProduct] = sorted.splice(qplusIndex, 1);
+                const updatedOzonIndex = sorted.findIndex(product => String(product.id) === '7');
+                sorted.splice(updatedOzonIndex + 1, 0, qplusProduct);
+            }
             return sorted;
     }
 }
@@ -1762,9 +2103,17 @@ function openProduct(productId) {
         16: 'products/revolut-verified.html',
         17: 'products/volet-advcash-verified.html',
         18: 'products/skrill-verified.html',
+        242: 'products/payoneer-verified.html',
+        243: 'products/paysera-verified.html',
+        244: 'products/stripe-verified.html',
         19: 'products/bybit-verified.html',
         20: 'products/binance-verified.html',
         21: 'products/okx-verified.html',
+        306: 'products/kraken-verified.html',
+        307: 'products/crypto-com-wallet.html',
+        308: 'products/bitget-wallet.html',
+        309: 'products/gateio-wallet.html',
+        317: 'products/n26-account.html',
         26: 'products/mexc-verified.html',
         214: 'products/pari-account.html',
         305: 'products/bybit-account-with-balance.html',
@@ -1776,6 +2125,13 @@ function openProduct(productId) {
         102: 'products/vtb-platina.html',
         201: 'products/sberbank-gold.html',
         202: 'products/sberbank-perviy.html',
+        310: 'products/sberbank-verified.html',
+        311: 'products/vtb-verified.html',
+        312: 'products/tbank-verified.html',
+        313: 'products/alfabank-verified.html',
+        314: 'products/kaspi-bank-verified.html',
+        315: 'products/halyk-bank-verified.html',
+        316: 'products/google-adsense-account.html',
         205: 'products/tinkoff-black.html',
         210: 'products/visa-prepaid-virtual-100-eur.html',
         211: 'products/mastercard-prepaid-virtual-100-usd.html',
@@ -2206,6 +2562,7 @@ function getCategoryName(category) {
         'debit': 'Банковские карты',
         'prepaid': 'Предоплаченные карты',
         'ewallet': 'Электронные кошельки',
+        'bankaccounts': 'Банковские аккаунты',
         'accounts': 'Аккаунты',
         'vpnproxy': 'Программы'
     };
