@@ -252,8 +252,6 @@ function openProductFromCheckout(productId) {
         231: 'products/claude-ai-pro.html',
         232: 'products/claude-ai-max.html',
         233: 'products/fortnite-300-plus-skins.html',
-        240: 'products/gta-6-ultimate-edition-ps-turkey.html',
-        241: 'products/gta-6-ultimate-edition-xbox-turkey.html',
         234: 'products/facebook-old-2016-2020.html',
         235: 'products/x-twitter-old-2008-2014.html',
         236: 'products/google-usa-gmail-2020-6-years-personal.html',
@@ -413,8 +411,10 @@ function initFormValidation() {
         let isValid = true;
 
         const contactInfo = document.getElementById('contactInfo');
-        if (!contactInfo.value.trim()) {
+        contactInfo.value = contactInfo.value.trim();
+        if (!contactInfo.value || !contactInfo.checkValidity()) {
             contactInfo.classList.add('is-invalid');
+            contactInfo.classList.remove('is-valid');
             isValid = false;
         } else {
             contactInfo.classList.remove('is-invalid');

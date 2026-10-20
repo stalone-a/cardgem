@@ -126,20 +126,20 @@ const products = [
           {
                     "author": "Саня",
                     "rating": 5,
-                    "text": "Мин через 15 получил свой аккаунт, вывел по гайду на свой основной счет",
-                    "date": "2026-09-02"
+                    "text": "Мин через 15 получил свой аккаунт, вывел по гайду на свой счет",
+                    "date": "2026-10-25"
           },
           {
                     "author": "FJKLsdf2",
                     "rating": 5,
                     "text": "халява",
-                    "date": "2026-07-24"
+                    "date": "2026-09-04"
           },
           {
                     "author": "UGGYN",
                     "rating": 5,
                     "text": "После получения акка вывел бабосы через обменник в крипту",
-                    "date": "2026-03-07"
+                    "date": "2026-07-08"
           }
 ]
     },
@@ -156,13 +156,13 @@ const products = [
                     "author": "321",
                     "rating": 5,
                     "text": "Лучший сервис",
-                    "date": "2026-08-19"
+                    "date": "2026-09-19"
           },
           {
                     "author": "Антн",
                     "rating": 5,
                     "text": "Выпал аккаунт с полутрой тысяч, вывел по инструкции. норм",
-                    "date": "2026-05-24"
+                    "date": "2026-08-24"
           }
 ]
     },
@@ -421,6 +421,12 @@ const products = [
         description: "Верифицированный аккаунт Bybit для торговли криптовалютами с полным доступом ко всем функциям платформы.",
         images: ["images/products/bybit-verified.webp", "images/products/bybit-verified2.webp"],
         reviews: [
+        {
+                    "author": "Leva",
+                    "rating": 5,
+                    "text": "Аккаунт не слетел после моего входа, уже хорошо. Буду смотреть дальше.",
+                    "date": "2026-09-07"
+          },
           {
                     "author": "wasd",
                     "rating": 5,
@@ -444,6 +450,12 @@ const products = [
         description: "Взлом аккаунта Coinbase с полным доступом и балансом 1200 - 2000 долларов США. В комплекте руководство.",
         images: ["images/products/bybit-verified.webp", "images/products/bybit500.webp"],
         reviews: [
+        {
+                    "author": "velvet",
+                    "rating": 5,
+                    "text": "Баланс вывел по инструкции. Спс!!!!!!!!!!!!!!!!!!!!",
+                    "date": "2026-10-23"
+          },
           {
                     "author": "сим",
                     "rating": 5,
@@ -462,6 +474,12 @@ const products = [
         images: ["images/products/binance-verified.webp", "images/products/binance-verified2.webp"],
         reviews: [
           {
+                    "author": "бриз",
+                    "rating": 5,
+                    "text": "Получил. Ну мёд! Пройден и номер и доки. 5 из 5!",
+                    "date": "2026-09-21"
+          },
+          {
                     "author": "Вадим",
                     "rating": 5,
                     "text": "Аккаунт полностью рабочий, документы все на месте",
@@ -478,6 +496,12 @@ const products = [
         description: "Взлом аккаунта Binance с полным доступом и балансом 1000 + долларов США. В комплекте руководство.",
         images: ["images/products/binance-verified.webp", "images/products/binance1000.webp"],
         reviews: [
+        {
+                    "author": "cometa",
+                    "rating": 5,
+                    "text": "Всё отлично, быстро очень. Акк рабочий!",
+                    "date": "2026-10-11"
+          },
           {
                     "author": "boy",
                     "rating": 5,
@@ -999,6 +1023,12 @@ const products = [
             "images/products/max-account2.webp"
         ],
         reviews: [
+        {
+                    "author": "ваня",
+                    "rating": 5,
+                    "text": "Ну пойдет в принципе всё работает вроде пока что",
+                    "date": "2026-10-20"
+          },
           {
                     "author": "5231512",
                     "rating": 5,
@@ -1274,58 +1304,6 @@ const products = [
                     "rating": 5,
                     "text": "Работаю с этим продавцом с апреля. Всё стабильно, быстро и хорошо. Будем работать дальше.",
                     "date": "2026-06-29"
-          }
-]
-    },
-    {
-        id: 240,
-        name: "Аккаунт GTA 6 Ultimate Edition PS (Турция)",
-        price: 1500,
-        category: "accounts",
-        image: "images/products/gta6.webp",
-        description: "Аккаунт GTA 6 Ultimate Edition PS (Турция) с полным доступом, готовый к игре. Подходит для пользователей, которым нужен готовый аккаунт с корректной настройкой и доступом.",
-        images: ["images/products/gta6.webp", "images/products/gta6v1.webp"],
-        reviews: [
-          {
-                    "author": "Sabrina1425",
-                    "rating": 5,
-                    "text": "Быстро легенда",
-                    "date": "2026-08-17"
-          },
-          {
-                    "author": "Samnnov",
-                    "rating": 5,
-                    "text": "Относительно быстро, выдали акк, проблем нет",
-                    "date": "2026-08-05"
-          },
-          {
-                    "author": "ununuc",
-                    "rating": 5,
-                    "text": "all good )",
-                    "date": "2026-07-29"
-          }
-]
-    },
-    {
-        id: 241,
-        name: "Аккаунт GTA 6 Ultimate Edition XBOX (Турция)",
-        price: 1500,
-        category: "accounts",
-        image: "images/products/gta6.webp",
-        description: "Аккаунт GTA 6 Ultimate Edition XBOX (Турция) с полным доступом, готовый к игре. Подходит для пользователей, которым нужен рабочий аккаунт на Xbox с доступом к игре.",
-        images: ["images/products/gta6.webp", "images/products/gta6v2.webp"],
-        reviews: [
-          {
-                    "author": "SinisterMarkkkk",
-                    "rating": 5,
-                    "text": "Супер быстро",
-                    "date": "2026-08-12"
-          },
-          {
-                    "author": "R99",
-                    "rating": 5,
-                    "text": "Все отлично, осталось 126 дней!",
-                    "date": "2026-07-16"
           }
 ]
     },
@@ -2155,8 +2133,6 @@ function openProduct(productId) {
         231: 'products/claude-ai-pro.html',
         232: 'products/claude-ai-max.html',
         233: 'products/fortnite-300-plus-skins.html',
-        240: 'products/gta-6-ultimate-edition-ps-turkey.html',
-        241: 'products/gta-6-ultimate-edition-xbox-turkey.html',
         234: 'products/facebook-old-2016-2020.html',
         235: 'products/x-twitter-old-2008-2014.html',
         236: 'products/google-usa-gmail-2020-6-years-personal.html',

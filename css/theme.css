@@ -169,6 +169,27 @@ html[data-theme="light"] .footer-bg h5 {
     color: var(--tg-theme-text) !important;
 }
 
+html[data-theme="light"] .footer-bg.site-footer .footer-brand p,
+html[data-theme="light"] .footer-bg.site-footer .footer-bottom,
+html[data-theme="light"] .footer-bg.site-footer .footer-link {
+    color: var(--tg-theme-hint) !important;
+}
+
+html[data-theme="light"] .footer-bg.site-footer .footer-contact {
+    border-color: var(--tg-theme-border);
+    background: var(--tg-theme-secondary-bg);
+    color: var(--tg-theme-accent) !important;
+}
+
+html[data-theme="light"] .footer-bg.site-footer .footer-contact:hover {
+    border-color: var(--tg-theme-accent);
+    background: var(--tg-theme-card-bg);
+}
+
+html[data-theme="light"] .footer-bg.site-footer .footer-brand-name {
+    color: var(--tg-theme-text) !important;
+}
+
 html[data-theme="light"] .header-bg .navbar-dark .navbar-nav .nav-link,
 html[data-theme="light"] .header-bg .theme-toggle {
     color: #edf1f4 !important;

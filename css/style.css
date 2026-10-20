@@ -510,14 +510,118 @@ body {
 
 .footer-bg {
     background-color: var(--tg-theme-bg) !important;
-    border-top: none;
+    border-top: 1px solid var(--tg-theme-border);
 }
 
+.footer-bg.site-footer {
+    color: var(--tg-theme-text);
+}
 
-@media (min-width: 768px) {
-    .footer-bg .container {
-        max-width: 600px;
-        margin: 0 auto;
+.site-footer .footer-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.site-footer .footer-brand {
+    min-width: 0;
+}
+
+.site-footer .footer-brand-name {
+    display: inline-block;
+    margin-bottom: 0.25rem;
+    color: var(--tg-theme-text);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    text-decoration: none;
+}
+
+.site-footer .footer-brand p {
+    margin: 0;
+    color: var(--tg-theme-hint);
+    font-size: 0.9rem;
+}
+
+.site-footer .footer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+    min-width: 0;
+}
+
+.site-footer .footer-link {
+    color: var(--tg-theme-hint);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.site-footer .footer-link:hover {
+    color: var(--tg-theme-text);
+}
+
+.site-footer .footer-contact {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    max-width: 100%;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid var(--tg-theme-border);
+    border-radius: 0.75rem;
+    background: var(--tg-theme-secondary-bg);
+    color: var(--tg-theme-accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.site-footer .footer-contact:hover {
+    border-color: var(--tg-theme-accent);
+    background: var(--tg-theme-card-bg);
+    color: var(--tg-theme-accent);
+}
+
+.site-footer .footer-contact span {
+    overflow-wrap: anywhere;
+}
+
+.site-footer .footer-bottom {
+    margin-top: 1.5rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--tg-theme-border);
+    color: var(--tg-theme-hint);
+    font-size: 0.8rem;
+}
+
+.support-email,
+.support-email:hover,
+.support-email:focus,
+.support-email:active {
+    color: inherit;
+}
+
+@media (max-width: 767.98px) {
+    .site-footer .footer-main {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .site-footer .footer-nav {
+        justify-content: flex-start;
+        gap: 0.75rem 1rem;
+        width: 100%;
+    }
+
+    .site-footer .footer-contact {
+        justify-content: flex-start;
     }
 }
 
