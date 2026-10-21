@@ -2553,8 +2553,8 @@ body {
     width: 380px;
     padding: 0.85rem 1rem;
     color: var(--tg-theme-text);
-    background: var(--tg-theme-card-bg);
-    border: 1px solid var(--tg-theme-border);
+    background: #173f5c;
+    border: none;
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     animation: slideInFromLeft 0.3s ease;

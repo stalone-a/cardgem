@@ -319,11 +319,15 @@ html[data-theme="light"] .home-trust-strip {
     border-color: var(--tg-theme-border);
 }
 
-html[data-theme="light"] .demo-purchase-notice,
 html[data-theme="light"] .checkout-cart-notice {
     background-color: var(--tg-theme-card-bg);
     border-color: var(--tg-theme-border);
     color: var(--tg-theme-text);
+}
+
+html[data-theme="light"] .demo-purchase-notice {
+    background-color: #d5efff;
+    color: #20242a;
 }
 
 html[data-theme="light"] .modal-overlay {
