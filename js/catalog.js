@@ -1330,7 +1330,7 @@ const products = [
         price: 400,
         category: "accounts",
         image: "images/products/face.webp",
-        description: "СТАРЫЙ АККАУНТ FACEBOOK 2016-2020. Руководство прилагается к покупке. Формат аккаунта = Username:Password:MailEmail:MailPassword. Доступ к почте (можно войти в почту). Гарантия 14 дней после покупки.",
+        description: "СТАРЫЙ АККАУНТ FACEBOOK 2016-2020. Руководство прилагается к покупке. Формат аккаунта = Username:Password:MailEmail:MailPassword. Доступ к почте (можно войти в почту). Бесплатная замена в случае любых проблем",
         images: ["images/products/face.webp", "images/products/face2.webp"],
         reviews: [
           {
@@ -1359,7 +1359,7 @@ const products = [
         price: 450,
         category: "accounts",
         image: "images/products/x.webp",
-        description: "Регистрация с 2008 по 2014 год. Формат аккаунта = TwitterUsername:Password:MailEmail:MailPassword. Доступ к почте (можно войти в почту). Руководство по использованию аккаунта. Гарантия 14 дней после покупки.",
+        description: "Регистрация с 2008 по 2014 год. Формат аккаунта = TwitterUsername:Password:MailEmail:MailPassword. Доступ к почте (можно войти в почту). Руководство по использованию аккаунта. Бесплатная замена в случае любых проблем",
         images: ["images/products/x.webp", "images/products/x2.webp"],
         reviews: [
           {
