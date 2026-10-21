@@ -394,6 +394,9 @@ function initializeDemoPurchaseNotifications() {
         notification.className = 'demo-purchase-notice';
         notification.setAttribute('role', 'status');
         notification.innerHTML = `
+            <button class="demo-purchase-close" type="button" aria-label="Закрыть уведомление">
+                <i class="bi bi-x" aria-hidden="true"></i>
+            </button>
             <div class="demo-purchase-label">Уведомление</div>
             <div class="demo-purchase-message">
                 <i class="bi bi-bag-check"></i>
@@ -402,12 +405,17 @@ function initializeDemoPurchaseNotifications() {
             <div class="demo-purchase-time">${time}</div>
         `;
 
+        let removalTimeout;
+        const dismissNotification = () => {
+            if (notification.classList.contains('is-hidden')) return;
+            notification.classList.add('is-hidden');
+            removalTimeout = setTimeout(() => notification.remove(), 300);
+        };
+
+        notification.querySelector('.demo-purchase-close').addEventListener('click', dismissNotification);
         document.body.appendChild(notification);
 
-        setTimeout(() => {
-            notification.classList.add('is-hidden');
-            setTimeout(() => notification.remove(), 300);
-        }, 10000);
+        setTimeout(dismissNotification, 10000);
 
         return true;
     };
