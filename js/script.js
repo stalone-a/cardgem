@@ -321,11 +321,12 @@ function initializeDemoPurchaseNotifications() {
     if (!isSupportedPage || !Array.isArray(window.products)) return;
 
     const categoryWeights = [
-        { category: 'ewallet', weight: 44 },
-        { category: 'accounts', weight: 44 },
+        { category: 'ewallet', weight: 39 },
+        { category: 'accounts', weight: 39 },
         { category: 'prepaid', weight: 4 },
         { category: 'vpnproxy', weight: 5 },
-        { category: 'debit', weight: 3 }
+        { category: 'debit', weight: 3 },
+        { category: 'bankaccounts', weight: 10 }
     ];
     const purchaseTimes = [
         'только что',
