@@ -412,7 +412,7 @@ function initFormValidation() {
 
         const contactInfo = document.getElementById('contactInfo');
         contactInfo.value = contactInfo.value.trim();
-        if (!contactInfo.value || !contactInfo.checkValidity()) {
+        if (!contactInfo.value) {
             contactInfo.classList.add('is-invalid');
             contactInfo.classList.remove('is-valid');
             isValid = false;
